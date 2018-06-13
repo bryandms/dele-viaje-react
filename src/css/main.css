@@ -1,0 +1,18 @@
+html,
+body,
+#root {
+  height: 100%;
+  background-color: #f7f7f7;
+}
+
+.form-background {
+  height: 100%;
+  background-image: url("/images/background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.text-light {
+  color: #dcddde;
+}
