@@ -12,6 +12,7 @@ import {
 } from "semantic-ui-react";
 
 import queries from "../../utils/queries";
+import Nav from "../partials/nav";
 
 class Register extends React.Component {
   constructor(props) {
@@ -55,8 +56,9 @@ class Register extends React.Component {
     ];
 
     return (
-      <Grid className="form-background" verticalAlign="middle" centered>
-        <Grid.Row>
+      <Grid className="form-background">
+        <Nav />
+        <Grid.Row  centered>
           <Grid.Column mobile={12} tablet={8} computer={6}>
             <Form onSubmit={event => this.handleSubmit(event, args)}>
               <Header textAlign="center" as="h1" inverted color="grey">
@@ -142,8 +144,7 @@ class Register extends React.Component {
                   </Divider>
                   <Divider inverted />
                   <label className="text-light">
-                    ¿Tienes una cuenta?{" "}
-                    <Link to="/login">Inicia sesión</Link>
+                    ¿Tienes una cuenta? <Link to="/login">Inicia sesión</Link>
                   </label>
                 </Grid.Row>
               </Grid>

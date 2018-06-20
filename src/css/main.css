@@ -15,4 +15,46 @@ body,
 
 .text-light {
   color: #dcddde;
+  text-align: center;
+}
+
+.hover {
+  position: relative;
+  width: 100%;
+}
+
+.card-img-transition {
+  opacity: 1;
+  transition: 0.5s ease;
+  backface-visibility: hidden;
+}
+
+.middle {
+  transition: 0.5s ease;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+
+.middle {
+  opacity: 0;
+}
+
+.hover:hover .card-img-transition {
+  opacity: 0.3;
+}
+
+.hover:hover .middle {
+  opacity: 1;
+}
+
+.gradient-image::after {
+  display: block;
+  position: relative;
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, #fff 100%);
+  margin-top: -150px;
+  height: 150px;
+  content: "";
 }

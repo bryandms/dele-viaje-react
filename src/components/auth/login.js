@@ -12,6 +12,7 @@ import {
 } from "semantic-ui-react";
 
 import queries from "../../utils/queries";
+import Nav from "../partials/nav";
 
 class Login extends React.Component {
   constructor(props) {
@@ -31,7 +32,7 @@ class Login extends React.Component {
       variables: args
     });
 
-    const { errors, success, token } = response.data.login;
+    const { errors, success, token, user } = response.data.login;
 
     if (!success) {
       this.setState({ errors });
@@ -52,8 +53,9 @@ class Login extends React.Component {
     const { args, errors } = this.state;
 
     return (
-      <Grid className="form-background" verticalAlign="middle" centered>
-        <Grid.Row>
+      <Grid className="form-background">
+        <Nav />
+        <Grid.Row centered>
           <Grid.Column mobile={12} tablet={8} computer={6}>
             <Form onSubmit={event => this.handleSubmit(event, args)}>
               <Header textAlign="center" as="h1" inverted color="grey">
