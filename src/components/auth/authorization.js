@@ -1,22 +1,21 @@
 import React from "react";
 import Forbidden from "../errors/forbidden";
 
-const Authorization = allowedRoles => WrappedComponent =>
+const Authorization = (allowedRoles, AuthStore) => WrappedComponent =>
   class Authorization extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        user: {
-          username: "",
-          role: ""
-        }
-      };
-    }
-
     render() {
-      const { role } = this.state.user;
-      if (allowedRoles.includes(role)) {
-        return <WrappedComponent {...this.props} user={this.state.user} />;
+      const { roles } = AuthStore.user;
+
+      function havePermissions() {
+        for (let i = 0; i < roles.length; i++) {
+          if (allowedRoles.includes(roles[i].name)) return true;
+        }
+        if (roles.length === 0) return true;
+        return false;
+      }
+
+      if (havePermissions()) {
+        return <WrappedComponent {...this.props} user={AuthStore} />;
       } else {
         return <Forbidden />;
       }

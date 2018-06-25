@@ -26,19 +26,74 @@ export default {
           accessibility
           category
           score
-          numberOfVotes
-          websiteUrl
+          votes
+          website
           phone
           price
           email
           schedule
           photos
           services {
+            id
             name
-            iconClass
-            description
+            icon
             price
           }
+        }
+      }
+    `,
+    allPlaces: gql`
+      {
+        allPlaces {
+          id
+          name
+          description
+          latitude
+          longitude
+          province
+          accessibility
+          category
+          score
+          votes
+          website
+          phone
+          price
+          email
+          schedule
+          photos
+          users {
+            id
+            username
+          }
+          services {
+            id
+            name
+          }
+        }
+      }
+    `,
+    allServices: gql`
+      {
+        allServices {
+          id
+          name
+          price
+          icon
+          places {
+            id
+            name
+          }
+        }
+      }
+    `,
+    allUsers: gql`
+      {
+        allUsers {
+          id
+          username
+          email
+          gender
+          age
         }
       }
     `
@@ -50,9 +105,38 @@ export default {
           success
           token
           user {
+            id
             username
+            email
+            gender
+            age
             roles {
+              id
               name
+            }
+            favoritePlaces {
+              id
+              name
+              description
+              latitude
+              longitude
+              province
+              accessibility
+              category
+              score
+              votes
+              website
+              phone
+              price
+              email
+              schedule
+              photos
+              services {
+                id
+                name
+                icon
+                price
+              }
             }
           }
           errors {
@@ -85,6 +169,16 @@ export default {
           }
           success
         }
+      }
+    `,
+    addFavPlace: gql`
+      mutation($placeId: ID!, $userId: ID!) {
+        addFavPlace(placeId: $placeId, userId: $userId)
+      }
+    `,
+    removeFavPlace: gql`
+      mutation($placeId: ID!, $userId: ID!) {
+        removeFavPlace(placeId: $placeId, userId: $userId)
       }
     `
   },

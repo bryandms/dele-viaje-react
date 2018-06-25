@@ -58,7 +58,6 @@ class Home extends React.Component {
 
   render() {
     const { args, places } = this.state;
-    const style = { height: "100%" };
     const provinces = [
       { key: "N", text: "", value: "" },
       { key: "C", text: "Cartago", value: "Cartago" },
@@ -90,7 +89,7 @@ class Home extends React.Component {
     ];
 
     return (
-      <div style={style}>
+      <div className="full">
         <Grid className="form-background">
           <Nav />
           <Grid.Row centered>
@@ -173,11 +172,11 @@ class Home extends React.Component {
 
         <Grid>
           <Container>
-            {places.length ? (
-              <div id="result">
-                <SearchResult places={places} />
-              </div>
-            ) : null}
+            <div id="result">
+              {places.length ? (
+                <SearchResult places={places} user={this.props.user.user} />
+              ) : null}
+            </div>
           </Container>
         </Grid>
       </div>

@@ -13,6 +13,14 @@ body,
   background-size: cover;
 }
 
+.full {
+  height: 100% !important;
+}
+
+.square-radius {
+  border-radius: 0px !important;
+}
+
 .text-light {
   color: #dcddde;
   text-align: center;
@@ -57,4 +65,31 @@ body,
   margin-top: -150px;
   height: 150px;
   content: "";
+}
+
+.content {
+  padding: 1em 3em;
+}
+
+.padding-0 {
+  padding: 0em !important;
+}
+
+.padding-3 {
+  padding: 3em !important;
+}
+
+.margin-10 {
+  margin: 10px !important;
+}
+
+.grid-errors {
+  top: 30% !important;
+  position: fixed !important;
+  width: 100% !important;
+}
+
+.img-thumbnail {
+  height: 200px;
+  width: 100%;
 }

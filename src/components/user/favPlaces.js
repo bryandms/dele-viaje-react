@@ -1,8 +1,8 @@
 import React from "react";
-import { Card, Grid, Header, Icon } from "semantic-ui-react";
-import ThumbnailPlace from "./thumbnailPlace";
+import { Card, Grid, Header } from "semantic-ui-react";
+import ThumbnailPlace from "../home/thumbnailPlace";
 
-class FavPlaces extends React.Component {
+class SearchResult extends React.Component {
   render() {
     const places = this.props.places;
     const placeItem = (place, i) => (
@@ -12,8 +12,7 @@ class FavPlaces extends React.Component {
     return (
       <Grid.Row className="padding-3">
         <Header as="h2" icon textAlign="center">
-          <Icon name="search" circular />
-          <Header.Content>Resultado de la búsqueda</Header.Content>
+          <Header.Content>Lugares turísticos favoritos</Header.Content>
         </Header>
         <Card.Group centered>{places.map(placeItem)}</Card.Group>
       </Grid.Row>
@@ -21,4 +20,4 @@ class FavPlaces extends React.Component {
   }
 }
 
-export default FavPlaces;
+export default SearchResult;

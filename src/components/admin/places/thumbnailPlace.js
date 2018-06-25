@@ -2,8 +2,7 @@ import React from "react";
 import { graphql, compose } from "react-apollo";
 import { Button, Card, Image, Rating, Icon } from "semantic-ui-react";
 
-import verifyRole from "../../utils/verifyRole";
-import queries from "../../utils/queries";
+import queries from "../../../utils/queries";
 import ModalPlace from "./modalPlace";
 
 class ThumbnailPlace extends React.Component {
@@ -34,44 +33,21 @@ class ThumbnailPlace extends React.Component {
   };
 
   render() {
-    const style = {
-      card: { margin: "10px" },
-      img: { height: "200px", width: "100%" }
-    };
     const { place, user } = this.props;
 
     return (
-      <Card centered style={style.card}>
+      <Card centered className="margin-10">
         <div className="hover">
           <Image
-            className="card-img-transition"
+            className="card-img-transition img-thumbnail"
             src={
               place.photos !== null
                 ? place.photos.img1
                 : "https://discountseries.com/wp-content/uploads/2017/09/default.jpg"
             }
-            style={style.img}
           />
           <div className="middle">
             <ModalPlace place={place} />
-            {verifyRole(user.roles, "user") ? (
-              <Button
-                basic
-                inverted
-                place={place.id}
-                user={user.id}
-                onClick={this.handleClick}
-                icon={
-                  <Icon
-                    disabled
-                    name="heart"
-                    color="black"
-                    link={true}
-                    size="large"
-                  />
-                }
-              />
-            ) : null}
           </div>
         </div>
 

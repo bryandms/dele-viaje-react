@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "react-apollo";
 import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
 import {
   Button,
   Divider,
@@ -14,6 +15,7 @@ import {
 import queries from "../../utils/queries";
 import Nav from "../partials/nav";
 
+@observer
 class Login extends React.Component {
   constructor(props) {
     super(props);
@@ -37,8 +39,13 @@ class Login extends React.Component {
     if (!success) {
       this.setState({ errors });
     } else {
+      this.props.user.user = user;
       localStorage.setItem("token", token);
-      this.props.history.push("/");
+      if (user.roles[0].name === "user") {
+        this.props.history.push("/dashboard");
+      } else {
+        this.props.history.push("/admin/dashboard");
+      }
     }
   };
 
