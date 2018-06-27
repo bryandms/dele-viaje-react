@@ -14,26 +14,21 @@ class ThumbnailPlace extends React.Component {
 
   handleClick = async (event, args) => {
     event.preventDefault();
-    const { place, user } = args;
-    args = { placeId: place, userId: user };
-    let response = await this.props.addFavPlace({
+    const { place } = args;
+    args = { id: place };
+    let response = await this.props.deletePlace({
       variables: args
     });
 
-    if (response.data.addFavPlace) {
-      console.log("se anadio");
+    if (response.data.deletePlace) {
+      console.log("se elimino");
     } else {
-      response = await this.props.removeFavPlace({
-        variables: args
-      });
-      if (response.data.removeFavPlace) {
-        console.log("se removio el lugar");
-      }
+      console.log("No se pudo remover el lugar");
     }
   };
 
   render() {
-    const { place, user } = this.props;
+    const { place } = this.props;
 
     return (
       <Card centered className="margin-10">
@@ -48,6 +43,21 @@ class ThumbnailPlace extends React.Component {
           />
           <div className="middle">
             <ModalPlace place={place} />
+            <Button
+              basic
+              inverted
+              place={place.id}
+              onClick={this.handleClick}
+              icon={
+                <Icon
+                  disabled
+                  name="trash"
+                  color="black"
+                  link={true}
+                  size="large"
+                />
+              }
+            />
           </div>
         </div>
 
@@ -76,6 +86,5 @@ class ThumbnailPlace extends React.Component {
 }
 
 export default compose(
-  graphql(queries.mutation.addFavPlace, { name: "addFavPlace" }),
-  graphql(queries.mutation.removeFavPlace, { name: "removeFavPlace" })
+  graphql(queries.mutation.deletePlace, { name: "deletePlace" })
 )(ThumbnailPlace);

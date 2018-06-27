@@ -180,6 +180,16 @@ export default {
       mutation($placeId: ID!, $userId: ID!) {
         removeFavPlace(placeId: $placeId, userId: $userId)
       }
+    `,
+    deletePlace: gql`
+      mutation($id: ID!) {
+        deletePlace(id: $id)
+      }
+    `,
+    deleteService: gql`
+      mutation($id: ID!) {
+        deleteService(id: $id)
+      }
     `
   },
   subscription: {}
