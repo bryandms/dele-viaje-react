@@ -93,3 +93,10 @@ body,
   height: 200px;
   width: 100%;
 }
+
+.add {
+  position: fixed;
+  right: 15px;
+  bottom: 15px;
+  z-index: 999999999;
+}
