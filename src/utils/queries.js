@@ -42,50 +42,6 @@ export default {
         }
       }
     `,
-    allPlaces: gql`
-      {
-        allPlaces {
-          id
-          name
-          description
-          latitude
-          longitude
-          province
-          accessibility
-          category
-          score
-          votes
-          website
-          phone
-          price
-          email
-          schedule
-          photos
-          users {
-            id
-            username
-          }
-          services {
-            id
-            name
-          }
-        }
-      }
-    `,
-    allServices: gql`
-      {
-        allServices {
-          id
-          name
-          price
-          icon
-          places {
-            id
-            name
-          }
-        }
-      }
-    `,
     allUsers: gql`
       {
         allUsers {
@@ -179,16 +135,6 @@ export default {
     removeFavPlace: gql`
       mutation($placeId: ID!, $userId: ID!) {
         removeFavPlace(placeId: $placeId, userId: $userId)
-      }
-    `,
-    deletePlace: gql`
-      mutation($id: ID!) {
-        deletePlace(id: $id)
-      }
-    `,
-    deleteService: gql`
-      mutation($id: ID!) {
-        deleteService(id: $id)
       }
     `
   },
