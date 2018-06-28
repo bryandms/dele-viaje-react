@@ -56,8 +56,7 @@ class ThumbnailPlace extends React.Component {
             <ModalPlace place={place} />
             {verifyRole(user.roles, "user") ? (
               <Button
-                basic
-                inverted
+                className="transparent"
                 place={place.id}
                 user={user.id}
                 onClick={this.handleClick}

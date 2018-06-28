@@ -83,6 +83,10 @@ body,
   margin: 10px !important;
 }
 
+.mr {
+  margin-right: 15px !important;
+}
+
 .grid-errors {
   top: 30% !important;
   position: fixed !important;
@@ -99,4 +103,10 @@ body,
   right: 15px;
   bottom: 15px;
   z-index: 999999999;
+}
+
+.transparent {
+  background: none !important;
+  border: none !important;
+  background-color: transparent !important;
 }
