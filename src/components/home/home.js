@@ -13,6 +13,7 @@ import {
 } from "semantic-ui-react";
 
 import queries from "../../utils/queries";
+import { provinces, accessibilities, categories } from "../../utils/selects";
 import Nav from "../partials/nav";
 import SearchResult from "../home/searchResult";
 import isAuth from "../../utils/isAuth";
@@ -58,35 +59,6 @@ class Home extends React.Component {
 
   render() {
     const { args, places } = this.state;
-    const provinces = [
-      { key: "N", text: "", value: "" },
-      { key: "C", text: "Cartago", value: "Cartago" },
-      { key: "H", text: "Heredia", value: "Heredia" },
-      { key: "S", text: "San José", value: "San José" },
-      { key: "A", text: "Alajuela", value: "Alajuela" },
-      { key: "L", text: "Limón", value: "Limón" },
-      { key: "P", text: "Puntarenas", value: "Puntarenas" },
-      { key: "G", text: "Guanacaste", value: "Guanacaste" }
-    ];
-    const accessibilities = [
-      { key: "N", text: "", value: "" },
-      { key: "L", text: "Lastre", value: "Lastre" },
-      { key: "B", text: "Barro", value: "Barro" },
-      { key: "E", text: "Empinado", value: "Empinado" },
-      { key: "A", text: "Calle asfaltada", value: "Calle asfaltada" },
-      { key: "T", text: "Todo terreno", value: "Todo terreno" }
-    ];
-
-    const categories = [
-      { key: "N", text: "", value: "" },
-      { key: "H", text: "Hotel", value: "Hotel" },
-      { key: "Mo", text: "Montaña", value: "Montaña" },
-      { key: "P", text: "Playa", value: "Playa" },
-      { key: "Mu", text: "Museo", value: "Museo" },
-      { key: "Mi", text: "Mirador", value: "Mirador" },
-      { key: "R", text: "Restaurante", value: "Restaurante" },
-      { key: "B", text: "Bar/Disco", value: "Bar/Disco" }
-    ];
 
     return (
       <div className="full">
