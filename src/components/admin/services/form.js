@@ -55,6 +55,7 @@ class ServiceForm extends Component {
                 onChange={this.handleOnChange}
               />
             </Form.Field>
+
             <Form.Field>
               <label>Precio</label>
               <input
@@ -67,18 +68,22 @@ class ServiceForm extends Component {
                 onChange={this.handleOnChange}
               />
             </Form.Field>
+
             <Form.Field>
               <Form.Select
                 onChange={this.handleOnChangeSelect}
                 name="icon"
                 fluid
+                value={icon}
                 options={icons}
                 placeholder="Ícono"
               />
             </Form.Field>
+
             <Button color="blue" type="submit">
               Enviar
             </Button>
+
             <Button color="black" type="button" onClick={close}>
               Cerrar
             </Button>

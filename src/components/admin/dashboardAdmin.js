@@ -3,7 +3,7 @@ import { Grid, Icon, Menu } from "semantic-ui-react";
 import { Query } from "react-apollo";
 
 import Nav from "../partials/nav";
-import PlaceList from "./places/placeList";
+import Place from "./places/index";
 import Service from "./services/index";
 import UserList from "./users/userList";
 import queries from "../../utils/queries";
@@ -75,15 +75,7 @@ class DashboardAdmin extends React.Component {
             </Menu>
           </Grid.Column>
           <Grid.Column mobile={13} tablet={13} computer={13}>
-            {activeItem === "Lugares turísticos" ? (
-              <Query query={queries.query.allPlaces}>
-                {({ loading, error, data }) => {
-                  if (loading) return <p>Loading</p>;
-                  if (error) return "error";
-                  return <PlaceList places={data.allPlaces} />;
-                }}
-              </Query>
-            ) : null}
+            {activeItem === "Lugares turísticos" ? <Place /> : null}
             {activeItem === "Servicios" ? <Service /> : null}
             {activeItem === "Usuarios" ? (
               <Query query={queries.query.allUsers}>

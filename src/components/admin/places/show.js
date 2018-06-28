@@ -8,7 +8,7 @@ class ModalPlace extends React.Component {
     return (
       <Modal
         trigger={
-          <Icon disabled name="eye" color="black" link={true} size="large" />
+          <Icon className="mr" disabled name="eye" color="black" link={true} size="large" />
         }
         centered={false}
       >
