@@ -4,7 +4,7 @@ import { Query } from "react-apollo";
 
 import Nav from "../partials/nav";
 import PlaceList from "./places/placeList";
-import ServiceList from "./services/serviceList";
+import Service from "./services/index";
 import UserList from "./users/userList";
 import queries from "../../utils/queries";
 
@@ -84,15 +84,7 @@ class DashboardAdmin extends React.Component {
                 }}
               </Query>
             ) : null}
-            {activeItem === "Servicios" ? (
-              <Query query={queries.query.allServices}>
-                {({ loading, error, data }) => {
-                  if (loading) return <p>Loading</p>;
-                  if (error) return "error";
-                  return <ServiceList services={data.allServices} />;
-                }}
-              </Query>
-            ) : null}
+            {activeItem === "Servicios" ? <Service /> : null}
             {activeItem === "Usuarios" ? (
               <Query query={queries.query.allUsers}>
                 {({ loading, error, data }) => {
