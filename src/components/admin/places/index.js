@@ -65,7 +65,7 @@ class Place extends Component {
       <div>
         <Alert alert={this.state.alert} />
         <Label className="add" color="black" onClick={this.addPlace}>
-          <Icon name="plus" />Añadir sitio turísticos
+          <Icon name="plus" />Añadir sitio turístico
         </Label>
         <PlaceList alert={this.alert} editPlace={this.editPlace} />
         <CreatePlace

@@ -17,7 +17,7 @@ class List extends React.Component {
     return (
       <Grid.Row className="padding-3">
         <Header as="h2" icon textAlign="center">
-          <Header.Content>Lista servicios</Header.Content>
+          <Header.Content>Lista de servicios</Header.Content>
         </Header>
         <Card.Group>
           {allServices.map(service => (

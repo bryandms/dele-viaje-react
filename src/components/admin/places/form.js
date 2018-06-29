@@ -142,6 +142,7 @@ class PlaceForm extends Component {
                 type="number"
                 name="latitude"
                 min="0"
+                step="any"
                 value={latitude}
                 placeholder="Latitud"
                 onChange={this.handleOnChange}
@@ -154,7 +155,7 @@ class PlaceForm extends Component {
                 required
                 type="number"
                 name="longitude"
-                min="0"
+                step="any"
                 value={longitude}
                 placeholder="Longitud"
                 onChange={this.handleOnChange}
