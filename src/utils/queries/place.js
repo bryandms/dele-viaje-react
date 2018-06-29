@@ -136,3 +136,16 @@ export const deletePlace = gql`
     deletePlace(id: $id)
   }
 `;
+
+export const uploadImage = gql`
+  mutation($file: FileUpload!, $placeId: Int!) {
+    singleUpload(file: {
+      file: $file, 
+      placeId: $placeId
+    }) {
+      id
+      path
+      filename
+    }
+  }
+`;

@@ -29,6 +29,10 @@ class ListItem extends Component {
     this.props.editPlace(this.props.place);
   };
 
+  handleUploadImages = () => {
+    this.props.uploadImages(this.props.place);
+  }
+
   render() {
     const place = this.props.place;
     return (
@@ -63,6 +67,17 @@ class ListItem extends Component {
                 place={place.id}
                 onClick={this.handleEditPlace}
                 name="pencil"
+                link={true}
+              />
+            </Label>
+            <Label className="transparent padding-0">
+              <Icon
+                size="large"
+                disabled
+                color="black"
+                place={place.id}
+                onClick={this.handleUploadImages}
+                name="images outline"
                 link={true}
               />
             </Label>
