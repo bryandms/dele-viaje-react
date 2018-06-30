@@ -11,7 +11,8 @@ class Place extends Component {
     editPlace: null,
     alert: "",
     openAdd: false,
-    openEdit: false
+    openEdit: false,
+    openUploadImage: false
   };
 
   addPlace = () => {
@@ -30,7 +31,8 @@ class Place extends Component {
         email: ""
       },
       openAdd: true,
-      openEdit: false
+      openEdit: false,
+      openUploadImage: false
     });
   };
 
@@ -38,6 +40,7 @@ class Place extends Component {
     this.setState({
       editPlace: place,
       openAdd: false,
+      openUploadImage: false,
       openEdit: true
     });
   };
@@ -47,7 +50,8 @@ class Place extends Component {
       addPlace: null,
       editPlace: null,
       openAdd: false,
-      openEdit: false
+      openEdit: false,
+      openUploadImage: false
     });
   };
 
@@ -60,6 +64,15 @@ class Place extends Component {
     });
   };
 
+  uploadImages = place => {
+    this.setState({
+      editPlace: place,
+      openAdd: false,
+      openEdit: false,
+      openUploadImage: true
+    });
+  };
+
   render() {
     return (
       <div>
@@ -67,7 +80,7 @@ class Place extends Component {
         <Label className="add" color="black" onClick={this.addPlace}>
           <Icon name="plus" />Añadir sitio turístico
         </Label>
-        <PlaceList alert={this.alert} editPlace={this.editPlace} />
+        <PlaceList alert={this.alert} editPlace={this.editPlace} uploadImages={this.uploadImages} />
         <CreatePlace
           place={this.state.addPlace}
           close={this.close}
@@ -80,6 +93,13 @@ class Place extends Component {
           alert={this.alert}
           open={this.state.openEdit}
         />
+        {this.state.openUploadImage && (
+          <UploadImage
+            place={this.state.editPlace}
+            close={this.close}
+            alert={this.alert}
+          />
+        )}
       </div>
     );
   }

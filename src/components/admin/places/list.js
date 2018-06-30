@@ -25,6 +25,7 @@ class List extends React.Component {
               key={place.id}
               place={place}
               editPlace={this.props.editPlace}
+              uploadImages={this.props.uploadImages}
               alert={this.props.alert}
             />
           ))}
