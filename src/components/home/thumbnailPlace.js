@@ -43,64 +43,60 @@ class ThumbnailPlace extends React.Component {
     const { place, user } = this.props;
 
     return (
-      <div>
+      <Card centered style={style.card}>
         <ToastContainer />
-        <Card centered style={style.card}>
-          <div className="hover">
-            <Image
-              className="card-img-transition"
-              src={
-                place.photos !== null
-                  ? place.photos.img1
-                  : "https://discountseries.com/wp-content/uploads/2017/09/default.jpg"
-              }
-              style={style.img}
-            />
-            <div className="middle">
-              <ModalPlace place={place} />
-              {verifyRole(user.roles, "user") ? (
-                <Button
-                  className="transparent"
-                  place={place.id}
-                  user={user.id}
-                  onClick={this.handleClick}
-                  icon={
-                    <Icon
-                      disabled
-                      name="heart"
-                      color="black"
-                      link={true}
-                      size="large"
-                    />
-                  }
-                />
-              ) : null}
-            </div>
+        <div className="hover">
+          <Image
+            className="card-img-transition"
+            src={
+              place.photos !== null
+                ? place.photos.img1
+                : "https://discountseries.com/wp-content/uploads/2017/09/default.jpg"
+            }
+            style={style.img}
+          />
+          <div className="middle">
+            <ModalPlace place={place} />
+            {verifyRole(user.roles, "user") ? (
+              <Button
+                className="transparent"
+                place={place.id}
+                user={user.id}
+                onClick={this.handleClick}
+                icon={
+                  <Icon
+                    disabled
+                    name="heart"
+                    color="black"
+                    link={true}
+                    size="large"
+                  />
+                }
+              />
+            ) : null}
           </div>
+        </div>
 
-          <Card.Content>
-            <Card.Header>{place.name}</Card.Header>
-            <Card.Meta>
-              <span className="date">
-                {place.category} | {place.accessibility}
-              </span>
-            </Card.Meta>
-            <Card.Description>{place.description}</Card.Description>
-          </Card.Content>
+        <Card.Content>
+          <Card.Header>{place.name}</Card.Header>
+          <Card.Meta>
+            <span className="date">
+              {place.category} | {place.accessibility}
+            </span>
+          </Card.Meta>
+          <Card.Description>{place.description}</Card.Description>
+        </Card.Content>
 
-          <Card.Content extra>
-            {place.votes === null
-              ? "0"
-              : (place.score / place.votes).toFixed(1)}{" "}
-            <Rating
-              icon="star"
-              defaultRating={place.score / place.votes}
-              maxRating={5}
-              disabled
-            />
-          </Card.Content>
-        </Card>
-      </div>
+        <Card.Content extra>
+          {place.votes === null ? "0" : (place.score / place.votes).toFixed(1)}{" "}
+          <Rating
+            icon="star"
+            defaultRating={place.score / place.votes}
+            maxRating={5}
+            disabled
+          />
+        </Card.Content>
+      </Card>
     );
   }
 }
