@@ -1,14 +1,130 @@
-body {
-  margin: 0;
+body,
+html,
+#root,
+#root>div {
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+/* Background */
+.bg-secondary {
+  background-color: #f0f2f5 !important;
+}
+
+.bg-form {
+  background-color: #0f0f0f;
+  background-image: url(/images/background.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+  height: calc(100vh - 52px);
+}
+
+.bg-error {
+  background-color: #f0f2f5;
+  background-attachment: fixed;
+  background-size: cover;
+  height: calc(100vh - 52px);
+}
+
+/* Card */
+.ui.centered.card {
+  margin: .875em !important;
+}
+
+/* -----------------------------------
+ *               Navbar
+ ----------------------------------- */
+/* Menu */
+.ui.fluid.text.menu {
+  background: #000 !important;
+  color: #aaa !important;
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+
+/* Item */
+.ui.text.menu .item {
+  color: #aaa !important;
+}
+
+/* Hover & active item */
+.ui.text.menu .active.item,
+.ui.text.menu .item:hover {
+  color: #fff !important;
+}
+
+/* -----------------------------------
+ *          Custom container
+ ----------------------------------- */
+/* Computer */
+@media (min-width: 933px) {
+  .custom-container {
+    padding-left: 10vw !important;
+    padding-right: 10vw !important;
+  }
+}
+
+/* Tablet */
+@media (max-width: 932px) and (min-width: 723px) {
+  .custom-container {
+    padding-left: 8vw !important;
+    padding-right: 8vw !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 722px) {
+  .custom-container {
+    padding-left: 6vw !important;
+    padding-right: 6vw !important;
+  }
+}
+
+/* -----------------------------------
+ *         Spacing utilities
+ ----------------------------------- */
+/* Padding utilities */
+.p-x {
+  padding-left: 3em !important;
+  padding-right: 3em !important;
+}
+
+.p-y {
+  padding-top: 3em !important;
+  padding-bottom: 3em !important;
+}
+
+.p-t {
+  padding-top: 3em !important;
+}
+
+.p-b {
+  padding-bottom: 3em !important;
+}
+
+.p-0 {
+  padding: 0 !important;
+}
+
+/* Margin utilities */
+.m-0 {
+  margin: 0 !important;
+}
+
+.m-b-1 {
+  margin-bottom: 1em !important;
+}
+
+/* -----------------------------------
+ *          Text utilities
+ ----------------------------------- */
+/* Text color utilities */
+.text-white {
+  color: #cecece !important;
+}
+
+.text-light {
+  color: #aaa !important;
 }

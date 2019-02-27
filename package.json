@@ -3,9 +3,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@rematch/core": "^1.0.6",
+    "animated-scroll-to": "^1.2.2",
+    "apollo-boost": "^0.1.28",
+    "graphql": "^14.1.1",
+    "jwt-decode": "^2.2.0",
+    "noty": "^3.2.0-beta",
     "react": "^16.8.2",
+    "react-apollo": "^2.4.1",
     "react-dom": "^16.8.2",
-    "react-scripts": "2.1.5"
+    "react-redux": "^6.0.1",
+    "react-router-dom": "^4.3.1",
+    "react-scripts": "2.1.5",
+    "semantic-ui-css": "^2.4.1",
+    "semantic-ui-react": "^0.85.0"
   },
   "scripts": {
     "start": "react-scripts start",
