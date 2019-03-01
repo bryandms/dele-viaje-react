@@ -50,10 +50,17 @@ const placeQuery = gql `
           id
           name
           description
+          latitude
+          longitude
+          province
           accessibility
           category
           score
           votes
+          website
+          phone
+          email
+          schedule
           photos
           userPlaces {
             userId
