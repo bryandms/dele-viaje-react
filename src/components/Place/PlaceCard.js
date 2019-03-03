@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 import { Card, Image, Rating } from 'semantic-ui-react'
 
 import { isAuth } from '../../helpers/auth'
@@ -52,12 +53,13 @@ class PlaceCard extends Component {
           />
           { ' ' + rating.toFixed(1) }
 
-          <a
+          <Link
+            to={'/place/' + place.id}
             className='float-right'
-            href={'/place/' + place.id}
           >
             Ver más
-          </a>
+          </Link>
+
         </Card.Content>
       </Card>
     )

@@ -62,6 +62,11 @@ const placeQuery = gql `
           email
           schedule
           photos
+          services {
+            id
+            name
+            icon
+          }
           userPlaces {
             userId
           }

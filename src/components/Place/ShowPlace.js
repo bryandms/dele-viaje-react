@@ -5,13 +5,14 @@ import { Grid, Header } from 'semantic-ui-react'
 import PlaceGallery from './PlaceGallery'
 import PlaceInformation from './PlaceInformation'
 import PlaceMap from './PlaceMap'
+import PlaceServices from './PlaceServices'
 import { placeQuery } from '../../graphql/place'
 import { errorNotification } from '../../helpers/notification'
 
 class ShowPlace extends Component {
   state = {
     place: {},
-    displayMap: false
+    displayComponents: false
   }
 
   componentWillMount = async () => {
@@ -19,13 +20,13 @@ class ShowPlace extends Component {
     const { success, errors, data } = res.data.place
 
     if (success)
-      this.setState({ place: data, displayMap: true })
+      this.setState({ place: data, displayComponents: true })
     else
       errorNotification(errors)
   }
 
   render() {
-    const { place, displayMap } = this.state
+    const { place, displayComponents } = this.state
 
     return (
       <React.Fragment>
@@ -55,14 +56,25 @@ class ShowPlace extends Component {
               tablet={8}
               computer={8}
               className='p-b'
+              style={{ minHeight: '300px' }}
             >
               {
-                displayMap ?
+                displayComponents ?
                   <PlaceMap
                     lat={place.latitude}
                     lng={place.longitude}
                     name={place.name}
                   /> : null
+              }
+            </Grid.Column>
+
+            <Grid.Column
+              width={16}
+              className='p-b'
+            >
+              {
+                displayComponents ?
+                  <PlaceServices services={place.services} /> : null
               }
             </Grid.Column>
           </Grid.Row>
