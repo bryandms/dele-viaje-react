@@ -1,28 +1,72 @@
 import React, { Component } from 'react'
 import { graphql } from 'react-apollo'
+import { Grid, Header } from 'semantic-ui-react'
 
+import PlaceGallery from './PlaceGallery'
+import PlaceInformation from './PlaceInformation'
+import PlaceMap from './PlaceMap'
 import { placeQuery } from '../../graphql/place'
 import { errorNotification } from '../../helpers/notification'
 
 class ShowPlace extends Component {
   state = {
-    place: {}
+    place: {},
+    displayMap: false
   }
-  async componentWillMount() {
+
+  componentWillMount = async () => {
     const res = await this.props.placeQuery.refetch()
     const { success, errors, data } = res.data.place
 
     if (success)
-      this.setState({ place: data })
+      this.setState({ place: data, displayMap: true })
     else
       errorNotification(errors)
   }
 
   render() {
-    const { place } = this.state
+    const { place, displayMap } = this.state
+
     return (
       <React.Fragment>
-        { place.name }
+        <PlaceGallery photos={place.photos} />
+
+        <Grid className='custom-container'>
+          <Grid.Row className='p-t'>
+            <Header
+              as='h1'
+              content={ place.name }
+              subheader={ place.description }
+            />
+          </Grid.Row>
+
+          <Grid.Row>
+            <Grid.Column
+              mobile={16}
+              tablet={8}
+              computer={8}
+              className='p-b'
+            >
+              <PlaceInformation place={place} />
+            </Grid.Column>
+
+            <Grid.Column
+              mobile={16}
+              tablet={8}
+              computer={8}
+              className='p-b'
+            >
+              {
+                displayMap ?
+                  <PlaceMap
+                    lat={place.latitude}
+                    lng={place.longitude}
+                    name={place.name}
+                  /> : null
+              }
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
       </React.Fragment>
     )
   }

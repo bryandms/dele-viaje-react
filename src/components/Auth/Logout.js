@@ -3,7 +3,7 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 class Logout extends Component {
-  componentWillMount() {
+  componentWillMount = () => {
     this.props.setUser({})
   }
 

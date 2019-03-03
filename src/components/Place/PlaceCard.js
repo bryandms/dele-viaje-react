@@ -15,7 +15,11 @@ class PlaceCard extends Component {
           width='100%'
           height='200'
           fluid
-          label={{ as: 'a', color: 'red', corner: 'right', icon: 'heart' }}
+          label={
+            isAuth()
+              ? { as: 'a', color: 'red', corner: 'right', icon: 'heart' }
+              : { icon: 'heart', className: 'd-none' }
+            }
           src={
             photos.length
               ? photos[0]
@@ -26,7 +30,6 @@ class PlaceCard extends Component {
         <Card.Content>
           <Card.Header>
             { place.name }
-            { isAuth() ? 'auth' : 'no auth' }
           </Card.Header>
 
           <Card.Meta>
@@ -48,6 +51,13 @@ class PlaceCard extends Component {
             disabled
           />
           { ' ' + rating.toFixed(1) }
+
+          <a
+            className='float-right'
+            href={'/place/' + place.id}
+          >
+            Ver más
+          </a>
         </Card.Content>
       </Card>
     )

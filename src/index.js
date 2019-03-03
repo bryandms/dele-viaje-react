@@ -8,11 +8,16 @@ import * as serviceWorker from './serviceWorker'
 import Routes from './routes/index'
 import store from './store/index'
 
+import 'photoswipe/dist/photoswipe.css'
+import 'photoswipe/dist/default-skin/default-skin.css'
+import 'react-photoswipe-component/src/style.css'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
 import 'semantic-ui-css/semantic.min.css'
 import './index.css'
 
 const client = new ApolloClient({
-  uri: 'http://localhost:4000/graphql',
+  uri: process.env.REACT_APP_CLIENT,
   request: async (operation) => {
     const token = await localStorage.getItem('token') || ''
     operation.setContext({
