@@ -51,6 +51,24 @@ html,
   color: #5f6767 !important;
 }
 
+/* Map */
+.google-maps {
+  min-height: 300px !important;
+}
+
+.google-maps>div>div {
+  position: initial !important;
+}
+
+@media (max-width: 766px) {
+  .google-maps {
+    margin-top: 3em !important;
+    padding-top: 3em !important;
+    padding-bottom: 3em !important;
+    overflow: hidden !important;
+  }
+}
+
 /* -----------------------------------
  *            Place gallery
  ----------------------------------- */

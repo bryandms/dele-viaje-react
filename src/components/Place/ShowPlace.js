@@ -6,6 +6,7 @@ import PlaceGallery from './PlaceGallery'
 import PlaceInformation from './PlaceInformation'
 import PlaceMap from './PlaceMap'
 import PlaceServices from './PlaceServices'
+import RideEstimateUber from './RideEstimateUber'
 import { placeQuery } from '../../graphql/place'
 import { errorNotification } from '../../helpers/notification'
 
@@ -46,7 +47,6 @@ class ShowPlace extends Component {
               mobile={16}
               tablet={8}
               computer={8}
-              className='p-b'
             >
               <PlaceInformation place={place} />
             </Grid.Column>
@@ -55,8 +55,7 @@ class ShowPlace extends Component {
               mobile={16}
               tablet={8}
               computer={8}
-              className='p-b'
-              style={{ minHeight: '300px' }}
+              className='google-maps'
             >
               {
                 displayComponents ?
@@ -67,7 +66,9 @@ class ShowPlace extends Component {
                   /> : null
               }
             </Grid.Column>
+          </Grid.Row>
 
+          <Grid.Row>
             <Grid.Column
               width={16}
               className='p-b'
@@ -76,6 +77,16 @@ class ShowPlace extends Component {
                 displayComponents ?
                   <PlaceServices services={place.services} /> : null
               }
+            </Grid.Column>
+
+            <Grid.Column
+              width={16}
+              className='p-b'
+            >
+              <RideEstimateUber
+                eLat={place.latitude}
+                eLng={place.longitude}
+              />
             </Grid.Column>
           </Grid.Row>
         </Grid>

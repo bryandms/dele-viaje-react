@@ -23,7 +23,8 @@
     "react-slick": "^0.23.2",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.85.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uber-api": "^0.3.3"
   },
   "scripts": {
     "start": "react-scripts start",
