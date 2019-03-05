@@ -7,8 +7,10 @@ import PlaceInformation from './PlaceInformation'
 import PlaceMap from './PlaceMap'
 import PlaceServices from './PlaceServices'
 import RideEstimateUber from './RideEstimateUber'
+import PlaceWeather from './PlaceWeather'
 import { placeQuery } from '../../graphql/place'
 import { errorNotification } from '../../helpers/notification'
+import { isAuth } from '../../helpers/auth'
 
 class ShowPlace extends Component {
   state = {
@@ -79,15 +81,34 @@ class ShowPlace extends Component {
               }
             </Grid.Column>
 
-            <Grid.Column
-              width={16}
-              className='p-b'
-            >
-              <RideEstimateUber
-                eLat={place.latitude}
-                eLng={place.longitude}
-              />
-            </Grid.Column>
+            {
+              isAuth() ?
+                <React.Fragment>
+                  <Grid.Column
+                    mobile={16}
+                    tablet={8}
+                    computer={8}
+                    className='p-b'
+                  >
+                    <RideEstimateUber
+                      eLat={place.latitude}
+                      eLng={place.longitude}
+                    />
+                  </Grid.Column>
+
+                  <Grid.Column
+                    mobile={16}
+                    tablet={8}
+                    computer={8}
+                    className='p-b'
+                  >
+                    <PlaceWeather
+                      lat={place.latitude}
+                      lon={place.longitude}
+                    />
+                  </Grid.Column>
+                </React.Fragment> : null
+            }
           </Grid.Row>
         </Grid>
       </React.Fragment>

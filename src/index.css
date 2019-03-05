@@ -69,6 +69,29 @@ html,
   }
 }
 
+/* Weather */
+.rw-main .rw-today .current {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.rw-main h2,
+.rw-main .rw-box-right,
+.rw-main .rw-today .date,
+.rw-main .hr {
+  display: none;
+}
+
+.rw-main .rw-today .desc {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.4);
+  margin: 10px 0;
+  padding-bottom: 10px;
+}
+
+.rw-main .rw-box-left {
+  width: 100%;
+}
+
 /* -----------------------------------
  *            Place gallery
  ----------------------------------- */
